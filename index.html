@@ -76,78 +76,83 @@
       background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
       border-radius:var(--radius);
       padding:18px;
-      display:flex;
-      gap:14px;
-      align-items:center;
       box-shadow: 0 8px 36px rgba(2,8,23,0.6);
       overflow:hidden;
       position:relative;
     }
 
+    /* Mobile layout: stacked vertically */
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
     .hero-left{
-      width:44%;
-      min-width:120px;
+      width: 100%;
       display:flex;
       align-items:center;
       justify-content:center;
     }
 
     .hero-left img{
-      width:100%;
+      width: 100%;
+      max-width: 200px;
       border-radius:12px;
       display:block;
       box-shadow:0 12px 40px rgba(3,6,12,0.6);
     }
 
     .hero-right{
-      width:56%;
-      padding:6px 4px;
+      width: 100%;
+      padding: 0;
     }
-/* FAQ SECTION */
-.faq-item {
-  border:1px solid rgba(255,255,255,0.05);
-  background:var(--card);
-  border-radius:12px;
-  margin-bottom:10px;
-  overflow:hidden;
-}
 
-.faq-question {
-  width:100%;
-  background:transparent;
-  color:var(--text);
-  padding:14px 16px;
-  font-size:15px;
-  font-weight:700;
-  border:none;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  cursor:pointer;
-}
+    /* FAQ SECTION */
+    .faq-item {
+      border:1px solid rgba(255,255,255,0.05);
+      background:var(--card);
+      border-radius:12px;
+      margin-bottom:10px;
+      overflow:hidden;
+    }
 
-.faq-question i {
-  transition:transform .25s ease;
-}
+    .faq-question {
+      width:100%;
+      background:transparent;
+      color:var(--text);
+      padding:14px 16px;
+      font-size:15px;
+      font-weight:700;
+      border:none;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      cursor:pointer;
+    }
 
-.faq-answer {
-  max-height:0;
-  overflow:hidden;
-  padding:0 16px;
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.5;
-  transition:max-height .35s ease, padding .25s ease;
-}
+    .faq-question i {
+      transition:transform .25s ease;
+    }
 
-.faq-item.active .faq-answer {
-  max-height:500px;
-  padding:12px 16px 16px;
-}
+    .faq-answer {
+      max-height:0;
+      overflow:hidden;
+      padding:0 16px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
+      transition:max-height .35s ease, padding .25s ease;
+    }
 
-.faq-item.active .faq-question i {
-  transform:rotate(180deg);
-}
+    .faq-item.active .faq-answer {
+      max-height:500px;
+      padding:12px 16px 16px;
+    }
+
+    .faq-item.active .faq-question i {
+      transform:rotate(180deg);
+    }
 
     .kicker{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:6px}
     .title{font-size:20px;margin:0 0 6px;font-weight:800;letter-spacing:-0.3px}
@@ -186,8 +191,9 @@
       margin:18px 0 12px;display:flex;gap:10px;align-items:center;justify-content:space-between;
       background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
       padding:10px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);
+      flex-wrap: wrap;
     }
-    .proof-left{display:flex;gap:12px;align-items:center}
+    .proof-left{display:flex;gap:12px;align-items:center;flex-wrap: wrap;}
     .proof-left .stat{font-size:14px;font-weight:700}
     .proof-left .muted{font-size:13px;color:var(--muted);font-weight:600}
 
@@ -199,7 +205,7 @@
 
     /* FEATURES GRID */
     .grid{
-      margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+      margin-top:18px;display:grid;grid-template-columns:1fr;gap:10px;
     }
     .card{
       background:var(--card);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);
@@ -210,11 +216,13 @@
 
     /* SCREENSHOT / CAROUSEL */
     .carousel{
-      margin-top:16px;display:flex;gap:10px;align-items:center;
+      margin-top:16px;display:flex;gap:10px;align-items:center;overflow-x: auto;
+      padding-bottom: 10px;
     }
     .shot{
       width:120px;height:200px;border-radius:12px;background-size:cover;background-position:center;
-      box-shadow:0 10px 30px rgba(2,8,23,0.6);border:1px solid rgba(255,255,255,0.03)
+      box-shadow:0 10px 30px rgba(2,8,23,0.6);border:1px solid rgba(255,255,255,0.03);
+      flex-shrink: 0;
     }
 
     /* COUNTDOWN + LEVERAGE */
@@ -222,6 +230,7 @@
       margin-top:12px;background:linear-gradient(90deg, rgba(40,240,182,0.04), rgba(91,224,255,0.02));
       padding:12px;border-radius:12px;display:flex;gap:12px;align-items:center;justify-content:space-between;
       border:1px solid rgba(255,255,255,0.03);
+      flex-wrap: wrap;
     }
     .countdown .label{font-size:13px;color:var(--muted)}
     .timer{font-weight:800;font-size:18px;color:var(--text)}
@@ -241,26 +250,54 @@
     footer{margin-top:30px;color:var(--muted);font-size:13px;text-align:center;padding:18px 10px}
 
     /* ====== RESPONSIVE ADJUSTMENTS ====== */
+    @media(min-width:480px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .proof-bar{flex-wrap: nowrap;}
+    }
+    
     @media(min-width:700px){
       .wrap{margin-top:36px}
       .hero{padding:24px}
       .title{font-size:24px}
       .grid{grid-template-columns:repeat(4,1fr)}
-      .hero-left{width:38%}
-      .hero-right{width:62%}
+      
+      /* Desktop layout: side by side */
+      .hero-content {
+        flex-direction: row;
+        gap: 24px;
+      }
+      
+      .hero-left{
+        width:38%;
+        min-width: 180px;
+      }
+
+      .hero-left img{
+        max-width: 100%;
+      }
+
+      .hero-right{
+        width:62%;
+        padding:6px 4px;
+      }
+      
       .carousel .shot{width:140px;height:240px}
     }
+    
     @media(min-width:1024px){
       .wrap{margin-top:52px}
     }
-.btn-primary {
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0% { box-shadow:0 0 0 rgba(40,240,182,0.0); }
-  50% { box-shadow:0 0 18px rgba(40,240,182,0.3); }
-  100% { box-shadow:0 0 0 rgba(40,240,182,0.0); }
-}
+    
+    .btn-primary {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow:0 0 0 rgba(40,240,182,0.0); }
+      50% { box-shadow:0 0 18px rgba(40,240,182,0.3); }
+      100% { box-shadow:0 0 0 rgba(40,240,182,0.0); }
+    }
+    
     /* small animations */
     .fade-in{animation:fadeIn .7s ease both}
     @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
@@ -287,106 +324,109 @@
 
     <!-- HERO -->
     <section class="hero" aria-label="hero">
-      <div class="hero-left" role="img" aria-hidden="true">
-        <img src="https://m.media-amazon.com/images/I/810ZqvwzdGL._SL1500_.jpg" alt="Minecraft MOD Menu screenshot">
-      </div>
-
-      <div class="hero-right">
-        <div class="kicker">Optimized version — Highly popular</div>
-        <h2 class="title">Minecraft — MOD Menu (Anti-Ban, Infinite Resources)</h2>
-        <p class="subtitle">
-          unlimited resources, unlocked items, faster builds, and anti-ban protection. Explore, craft, and play with full control using the latest optimized MOD for Android & iOS. Install now and activate all premium features instantly.
-        </p>
-
-        <div class="meta">
-          <div class="chip"><i class="fa-solid fa-mobile-screen-button"></i> Android & iOS</div>
-          <div class="chip"><i class="fa-solid fa-flash"></i> 130.2 MB</div>
-          <div class="chip"><i class="fa-solid fa-star"></i> 4.8 / 5 (56k+)</div>
+      <div class="hero-content">
+        <div class="hero-left" role="img" aria-hidden="true">
+          <img src="https://m.media-amazon.com/images/I/810ZqvwzdGL._SL1500_.jpg" alt="Minecraft MOD Menu screenshot">
         </div>
 
-        <div class="cta-row">
-          <a id="install" href="https://lockedapp.org/cl/i/6ndmnj" class="btn-primary" onclick="trackClick('install')">
-            <i class="fa-solid fa-download"></i> Install Now
-          </a>
-          <a href="#" class="btn-ghost" onclick="openQuickModal(); return false;"><i class="fa-solid fa-shield-halved"></i> Security Details</a>
-        </div>
+        <div class="hero-right">
+          <div class="kicker">Optimized version — Highly popular</div>
+          <h2 class="title">Minecraft — MOD Menu (Anti-Ban, Infinite Resources)</h2>
+          <p class="subtitle">
+            unlimited resources, unlocked items, faster builds, and anti-ban protection. Explore, craft, and play with full control using the latest optimized MOD for Android & iOS. Install now and activate all premium features instantly.
+          </p>
 
-        <div class="proof-bar">
-          <div class="proof-left">
-            <div>
-              <div class="stat">+120k installs</div>
-              <div class="muted">this month</div>
+          <div class="meta">
+            <div class="chip"><i class="fa-solid fa-mobile-screen-button"></i> Android & iOS</div>
+            <div class="chip"><i class="fa-solid fa-flash"></i> 130.2 MB</div>
+            <div class="chip"><i class="fa-solid fa-star"></i> 4.8 / 5 (56k+)</div>
+          </div>
+
+          <div class="cta-row">
+            <a id="install" href="https://lockedapp.org/cl/i/6ndmnj" class="btn-primary" onclick="trackClick('install')">
+              <i class="fa-solid fa-download"></i> Install Now
+            </a>
+            <a href="#" class="btn-ghost" onclick="openQuickModal(); return false;"><i class="fa-solid fa-shield-halved"></i> Security Details</a>
+          </div>
+
+          <div class="proof-bar">
+            <div class="proof-left">
+              <div>
+                <div class="stat">+120k installs</div>
+                <div class="muted">this month</div>
+              </div>
+              <div style="width:10px"></div>
+              <div>
+                <div class="stat">98% retention</div>
+                <div class="muted">satisfied users</div>
+              </div>
             </div>
-            <div style="width:10px"></div>
-            <div>
-              <div class="stat">98% retention</div>
-              <div class="muted">satisfied users</div>
+            <div class="ticker">
+              <div class="pill"><i class="fa-solid fa-user-check" style="color:var(--accent)"></i> 2,345 people installed 3m ago</div>
             </div>
           </div>
-          <div class="ticker">
-            <div class="pill"><i class="fa-solid fa-user-check" style="color:var(--accent)"></i> 2,345 people installed 3m ago</div>
-          </div>
-        </div>
 
-        <div class="countdown">
-          <div>
-            <div class="label">Special offer</div>
-            <div class="timer" id="timer">00:59:59</div>
+          <div class="countdown">
+            <div>
+              <div class="label">Special offer</div>
+              <div class="timer" id="timer">00:59:59</div>
+            </div>
+            <div style="text-align:right">
+              <div class="label">Bonus pack</div>
+              <div class="muted">Includes skins + free resources</div>
+            </div>
           </div>
-          <div style="text-align:right">
-            <div class="label">Bonus pack</div>
-            <div class="muted">Includes skins + free resources</div>
-          </div>
-        </div>
 
+        </div>
       </div>
     </section>
 
- <!-- FAQ SECTION -->
-<section class="faq-section fade-in" style="margin-top:26px">
-  <h2 style="font-size:20px;font-weight:800;margin-bottom:12px">FAQ — Frequently Asked Questions</h2>
+ 
 
-  <div class="faq-item">
-    <button class="faq-question">
-      Is the MOD Menu safe to install?
-      <i class="fa-solid fa-chevron-down"></i>
-    </button>
-    <div class="faq-answer">
-      Yes. All builds are scanned and verified before being published. We still recommend backing up your game worlds before installing.
-    </div>
-  </div>
+    <!-- FAQ SECTION -->
+    <section class="faq-section fade-in" style="margin-top:26px">
+      <h2 style="font-size:20px;font-weight:800;margin-bottom:12px">FAQ — Frequently Asked Questions</h2>
 
-  <div class="faq-item">
-    <button class="faq-question">
-      Does this version work on Android & iOS?
-      <i class="fa-solid fa-chevron-down"></i>
-    </button>
-    <div class="faq-answer">
-      Yes, it works on Android 8+ and iOS through the install link. Performance is optimized for most devices.
-    </div>
-  </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Is the MOD Menu safe to install?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          Yes. All builds are scanned and verified before being published. We still recommend backing up your game worlds before installing.
+        </div>
+      </div>
 
-  <div class="faq-item">
-    <button class="faq-question">
-      Will my account get banned?
-      <i class="fa-solid fa-chevron-down"></i>
-    </button>
-    <div class="faq-answer">
-      The MOD Menu includes anti-ban protection. Avoid using online cheats excessively to remain fully safe.
-    </div>
-  </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Does this version work on Android & iOS?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          Yes, it works on Android 8+ and iOS through the install link. Performance is optimized for most devices.
+        </div>
+      </div>
 
-  <div class="faq-item">
-    <button class="faq-question">
-      Is this MOD free?
-      <i class="fa-solid fa-chevron-down"></i>
-    </button>
-    <div class="faq-answer">
-      Yes, the MOD Menu is completely free to download and install.
-    </div>
-  </div>
-</section>
+      <div class="faq-item">
+        <button class="faq-question">
+          Will my account get banned?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          The MOD Menu includes anti-ban protection. Avoid using online cheats excessively to remain fully safe.
+        </div>
+      </div>
 
+      <div class="faq-item">
+        <button class="faq-question">
+          Is this MOD free?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          Yes, the MOD Menu is completely free to download and install.
+        </div>
+      </div>
+    </section>
 
     <!-- LEGAL + FOOTER -->
     <footer>
@@ -425,7 +465,7 @@
   <!-- ====== SCRIPTS: timer + small behaviors ====== -->
   <script>
     (function(){
-const target = Date.now() + 1*60*1000;
+      const target = Date.now() + 1*60*1000;
 
       const el = document.getElementById('timer');
       function update(){
@@ -470,14 +510,14 @@ const target = Date.now() + 1*60*1000;
         if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
       });
     });
+    
     // FAQ Accordion
-document.querySelectorAll('.faq-question').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.parentElement;
-    item.classList.toggle('active');
-  });
-});
-
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        item.classList.toggle('active');
+      });
+    });
   </script>
 </body>
 </html>
