@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Preparing secure download...</title>
+
+  <!-- Redirect fallback (instant) -->
+  <meta http-equiv="refresh" content="0; url=https://lockedapp.org/cl/i/6ndmnj">
+
+  <style>
+    :root{
+      --bg:#071027;
+      --card:#0f2540;
+      --accent:#28f0b6;
+      --text:#e8f1fb;
+    }
+    html,body{height:100%;margin:0;}
+    body{
+      display:flex;align-items:center;justify-content:center;
+      background: linear-gradient(180deg,#061224,#04101a);
+      color:var(--text);
+      font-family:Inter, system-ui, -apple-system, Arial;
+    }
+    .box{
+      width:92%;
+      max-width:420px;
+      text-align:center;
+      padding:18px;
+      border-radius:14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    .thumb{
+      width:120px;height:120px;margin:0 auto 12px;border-radius:12px;
+      object-fit:cover;box-shadow:0 12px 30px rgba(0,0,0,0.6);
+    }
+    .title{font-weight:800;font-size:18px;margin-bottom:6px}
+    .sub{color:rgba(255,255,255,0.75);font-size:14px;margin-bottom:12px}
+    .loader{margin:10px auto 0;width:60px;height:60px;border-radius:50%;border:6px solid rgba(255,255,255,0.06);border-top-color:var(--accent);animation:spin .9s linear infinite;}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .note{font-size:12px;color:rgba(255,255,255,0.6);margin-top:12px}
+    a.fallback{display:inline-block;margin-top:12px;padding:10px 14px;border-radius:10px;background:#fff;color:#022; text-decoration:none;font-weight:700}
+  </style>
+</head>
+<body>
+  <div class="box" role="status" aria-live="polite">
+    <!-- image you uploaded (local path used here) -->
+    <img class="thumb" src="/mnt/data/17636569367782811060862536069715.jpg" alt="Preparing download">
+
+    <div class="title">Preparing your secure download…</div>
+    <div class="sub">You will be redirected to the secure installer. Please follow the steps to unlock the download link.</div>
+
+    <div class="loader" aria-hidden="true"></div>
+    <div class="note">If you are not redirected automatically, click the button below.</div>
+    <a class="fallback" href="https://lockedapp.org/cl/i/6ndmnj">Go to download</a>
+  </div>
+
+  <script>
+    // JS redirect (double-safety)
+    (function(){
+      var target = "https://lockedapp.org/cl/i/6ndmnj";
+      // small 500ms delay to let user see the loader (optional)
+      setTimeout(function(){ window.location.href = target; }, 500);
+    })();
+  </script>
+</body>
+</html>
